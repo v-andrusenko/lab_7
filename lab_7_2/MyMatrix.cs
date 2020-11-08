@@ -12,12 +12,12 @@ namespace lab_7_2
         
         public int rows;
         public int columns;
-        int[,] array;
-        public MyMatrix(int columns, int rows)
+        public int[,] array;
+        public MyMatrix(int rows, int columns)
         {
             this.rows = rows;
             this.columns = columns;
-            array = new int[columns, rows];
+            array = new int[rows, columns];
         }
         
     }

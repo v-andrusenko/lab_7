@@ -25,17 +25,109 @@ namespace lab_7_2
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public static Boolean IsNumeric(string columns, string rows)
         {
-            int columns = Convert.ToInt32(Columns.Text);
-            int rows = Convert.ToInt32(Rows.Text);
-            if (columns <=0 || rows <=0)
+            bool result;
+            string value1 = columns.Trim(new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' });
+            string value2 = rows.Trim(new char[] { '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' });
+            if (value1 == "" && value2== "")
             {
-                MessageBox.Show("Количество столбцов и строк должно быть больше нуля.");
+                result = true;
             }
             else
             {
-                MyMatrix newmatrix = new MyMatrix(columns, rows);
+                result = false;
+            }
+            return result;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsNumeric(Convert.ToString(Columns.Text), Convert.ToString(Rows.Text)) == false)
+            {
+                MessageBox.Show("Некорректный тип данных. Вводите только числовые значения");
+            }
+            else
+            {
+                int columns = Convert.ToInt32(Columns.Text);
+                int rows = Convert.ToInt32(Rows.Text);
+                if (columns <= 0 || rows <= 0)
+                {
+                    MessageBox.Show("Количество столбцов и строк должно быть больше нуля.");
+                }
+                else
+                {
+                    MyMatrix newmatrix = new MyMatrix(rows, columns);
+                    if (newmatrix.rows==newmatrix.columns)
+                    {
+                        BaseMatrix.Text = "Порядок матрицы: " + newmatrix.columns + "\n";
+                    }
+                    else
+                    {
+                        BaseMatrix.Text = "Порядок матрицы: " + newmatrix.rows + " x " + newmatrix.columns + "\n";
+                    }
+                    
+                    for (int i = 0; i < newmatrix.rows; i++)
+                    {
+                        for (int k=0; k < newmatrix.columns;k++)
+                        {
+                            if (k==(newmatrix.columns-1))
+                            {
+                                BaseMatrix.Text += newmatrix.array[i, k].ToString() + "\n";
+                            }
+                            else
+                            {
+                                BaseMatrix.Text += newmatrix.array[i, k].ToString() + "  ";
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (IsNumeric(Convert.ToString(Columns.Text), Convert.ToString(Rows.Text)) == false)
+            {
+                MessageBox.Show("Некорректный тип данных. Вводите только числовые значения");
+            }
+            else
+            {
+                int columns = Convert.ToInt32(Columns.Text);
+                int rows = Convert.ToInt32(Rows.Text);
+                if (columns <= 0 || rows <= 0)
+                {
+                    MessageBox.Show("Количество столбцов и строк должно быть больше нуля.");
+                }
+                else
+                {
+                    MyMatrix newmatrix = new MyMatrix(rows, columns);
+                    if (newmatrix.rows == newmatrix.columns)
+                    {
+                        Matrix.Text = "Порядок матрицы: " + newmatrix.columns + "\n";
+                    }
+                    else
+                    {
+                        Matrix.Text = "Порядок матрицы: " + newmatrix.rows + " x " + newmatrix.columns + "\n";
+                    }
+
+                    for (int i = 0; i < newmatrix.rows; i++)
+                    {
+                        for (int k = 0; k < newmatrix.columns; k++)
+                        {
+                            if (k == (newmatrix.columns - 1))
+                            {
+                                Matrix.Text += newmatrix.array[i, k].ToString() + "\n";
+                            }
+                            else
+                            {
+                                Matrix.Text += newmatrix.array[i, k].ToString() + "  ";
+                            }
+
+                        }
+                    }
+                }
             }
         }
     }

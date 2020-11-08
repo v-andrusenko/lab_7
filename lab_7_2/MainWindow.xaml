@@ -8,9 +8,12 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+
         <TextBox x:Name="Columns" materialDesign:HintAssist.Hint="Количество столбцов" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10 10 10 10"/>
         <TextBox x:Name="Rows" materialDesign:HintAssist.Hint="Количество строк" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="162,0,514,370"/>
-        <Button Content="Подтвердить" HorizontalAlignment="Left" Margin="106,74,0,0" VerticalAlignment="Top" Width="121" Click="Button_Click"/>
+        <Button Content="Создать матрицу" HorizontalAlignment="Left" Margin="22,65,0,0" VerticalAlignment="Top" Width="153" Click="Button_Click"/>
+        <TextBlock x:Name="BaseMatrix" HorizontalAlignment="Left" Margin="22,174,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="220" Width="338"/>
+        <Button Content="Создать производную матрицу" HorizontalAlignment="Left" Margin="22,111,0,0" VerticalAlignment="Top" Width="245" Click="Button_Click_1"/>
+        <TextBlock x:Name="Matrix" HorizontalAlignment="Left" Margin="420,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="287" Width="362"/>
     </Grid>
 </Window>
