@@ -40,7 +40,7 @@ namespace lab_7_3
             products[7] = new Article("Ночь в Лиссабоне", "Yakaboo", 100);
             products[8] = new Article("Двенадцать стульев", "Yakaboo", 50);
             products[9] = new Article("Тени в раю", "Yakaboo", 50);
-            products[10] = new Article("Жизнь взамен", "Yakaboo", 150);
+            products[10] = new Article("Жизнь взаймы", "Yakaboo", 150);
         }
         public static Boolean IsNumeric(string index)
         {
@@ -60,7 +60,7 @@ namespace lab_7_3
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            InfoBox.Text = "Индекс товара:";
+
             if ((IsNumeric(Convert.ToString(inputBox.Text)) == false))
             {
                 productNameBox.Text = "";
@@ -74,8 +74,7 @@ namespace lab_7_3
                 productNameBox.Text = "";
                 shopNameBox.Text = "";
                 priceBox.Text = "";
-                MessageBox.Show("Вне диапазона допустимых значений");
-                
+                MessageBox.Show("К сожалению, товар не найден");
             }
             else
             {
@@ -88,15 +87,24 @@ namespace lab_7_3
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            InfoBox.Text = "Название товара:";
-            string input = Convert.ToString(inputBox.Text);
+            string input = Convert.ToString(inputBox.Text.ToLower());
+
             for (int i =1;i<=store.products.Length;i++)
             {
-                if (input == store[i].ProductName)
+                if (input == store[i].ProductName.ToLower())
                 {
                     productNameBox.Text = Convert.ToString(store[i].ProductName);
                     shopNameBox.Text = "'" + Convert.ToString(store[i].ShopName) + "'";
                     priceBox.Text = Convert.ToString(store[i].Price) + " грн";
+                    break;
+                }
+                else if (i == store.products.Length-1 && input != store[i].ProductName.ToLower())
+                {
+                    productNameBox.Text = "";
+                    shopNameBox.Text = "";
+                    priceBox.Text = "";
+                    MessageBox.Show("К сожалению, товар не найден");
+                    break;
                 }
                 else continue;
             }

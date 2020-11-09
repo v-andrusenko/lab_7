@@ -8,8 +8,8 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="MainWindow" Height="500" Width="800">
     <Grid>
-        <TextBlock x:Name="InfoBox" HorizontalAlignment="Left" Margin="37,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="101"/>
-        <TextBox x:Name="inputBox" HorizontalAlignment="Left" Height="22" Margin="138,28,0,0" TextWrapping="Wrap" Text="индекс" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="37" Width="128"><Run Text="Название или индекс товара"/><Run Text=":"/></TextBlock>
+        <TextBox x:Name="inputBox" HorizontalAlignment="Left" Height="26" Margin="138,24,0,0" TextWrapping="Wrap" Text="индекс" VerticalAlignment="Top" Width="120"/>
         <Button Content="Найти по индексу" HorizontalAlignment="Left" Margin="299,24,0,0" VerticalAlignment="Top" Width="152" Click="Button_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="37,85,0,0" TextWrapping="Wrap" Text="Название товара:" VerticalAlignment="Top" Height="17" Width="101"/>
         <TextBlock HorizontalAlignment="Left" Margin="37,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="101"><Run Text="Магазин"/><Run Text=":"/></TextBlock>
