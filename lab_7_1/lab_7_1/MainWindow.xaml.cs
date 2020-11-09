@@ -61,6 +61,12 @@ namespace lab_7_1
         {
             if (IsNumeric(Convert.ToString(LengthOfArray.Text)) == false)
             {
+                MaxResult.Text = "";
+                MinResult.Text = "";
+                AverageResult.Text = "";
+                SumResult.Text = "";
+                ArrayValues.Text = "";
+                OddValues.Text = "";
                 MessageBox.Show("Некорректный тип введенных данных. Введите новое значение");
             }
             else
