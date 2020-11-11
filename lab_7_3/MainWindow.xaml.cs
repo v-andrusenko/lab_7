@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -117,17 +118,29 @@ namespace lab_7_3
             }
         }
 
-        public string newItemName;
-        public string newItemShop;
-        public double newItemPrice;
+        string newItemName;
+        string newItemShop;
+        double newItemPrice;
+
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            SecondWindow secondWindow = new SecondWindow();
-            secondWindow.Owner = this;
-            secondWindow.Show();
+            newItemName = Convert.ToString(newItemNameBox.Text);
+            newItemShop = Convert.ToString(newItemShopBox.Text);
+            newItemPrice = Convert.ToDouble(newItemPriceBox.Text);
+
             Article newProduct = new Article(newItemName, newItemShop, newItemPrice);
-            
+
             store.addProduct(newProduct);
+            /*if (Convert.ToString(newItemNameBox.Text) == "" || Convert.ToString(newItemShopBox.Text) == "")
+            {
+                MessageBox.Show("Не удалось добавить товар");
+                
+            }
+            else
+            {
+                MessageBox.Show("Товар успешно добавлен!");
+            } */
         }
+        
     }
 }
