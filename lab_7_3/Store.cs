@@ -17,7 +17,8 @@ namespace lab_7_3
         public Article this[int index] => products[index];
         public void addProduct(Article article)
         {
-            products[products.Length] = article;
+            Array.Resize(ref products, products.Length + 1);
+            products[products.Length-1] = article;
         }
     }
 }

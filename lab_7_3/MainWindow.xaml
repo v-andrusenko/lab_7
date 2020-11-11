@@ -9,15 +9,17 @@
         Title="MainWindow" Height="500" Width="800">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="37" Width="128"><Run Text="Название или индекс товара"/><Run Text=":"/></TextBlock>
-        <TextBox x:Name="inputBox" HorizontalAlignment="Left" Height="26" Margin="138,24,0,0" TextWrapping="Wrap" Text="индекс" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Найти по индексу" HorizontalAlignment="Left" Margin="299,24,0,0" VerticalAlignment="Top" Width="152" Click="Button_Click"/>
+        <TextBox x:Name="inputBox" HorizontalAlignment="Left" Height="26" Margin="138,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215"/>
+        <Button Content="Найти по индексу" HorizontalAlignment="Left" Margin="375,24,0,0" VerticalAlignment="Top" Width="152" Click="Button_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="37,85,0,0" TextWrapping="Wrap" Text="Название товара:" VerticalAlignment="Top" Height="17" Width="101"/>
         <TextBlock HorizontalAlignment="Left" Margin="37,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="101"><Run Text="Магазин"/><Run Text=":"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Margin="37,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="101" Text="Цена: "/>
-        <TextBlock x:Name="productNameBox" HorizontalAlignment="Left" Margin="143,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="153"/>
-        <TextBlock x:Name="shopNameBox" HorizontalAlignment="Left" Margin="143,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="153"/>
-        <TextBlock x:Name="priceBox" HorizontalAlignment="Left" Margin="143,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="153"/>
-        <Button Content="Найти по названию" HorizontalAlignment="Left" Margin="476,24,0,0" VerticalAlignment="Top" Width="168" Click="Button_Click_1"/>
+        <TextBlock x:Name="productNameBox" HorizontalAlignment="Left" Margin="143,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="210"/>
+        <TextBlock x:Name="shopNameBox" HorizontalAlignment="Left" Margin="143,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="210"/>
+        <TextBlock x:Name="priceBox" HorizontalAlignment="Left" Margin="143,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="17" Width="210"/>
+        <Button Content="Найти по названию" HorizontalAlignment="Left" Margin="552,24,0,0" VerticalAlignment="Top" Width="168" Click="Button_Click_1"/>
+        
+        <Button Content="Добавить товар" HorizontalAlignment="Left" Margin="37,233,0,0" VerticalAlignment="Top" Width="142" Click="Button_Click_2"/>
 
     </Grid>
 </Window>

@@ -25,12 +25,14 @@ namespace lab_7_3
             InitializeComponent();
             CreateProducts();
             store = new Store(products);
+
         }
         private Article[] products;
         private Store store;
+
         public void CreateProducts()
         {
-            products = new Article[11];
+            products = new Article[16];
             products[1] = new Article("Ход королевы", "Буква", 300);
             products[2] = new Article("Великий Гэтсби", "Буква", 50);
             products[3] = new Article("Три товарища", "Буква", 150);
@@ -41,6 +43,11 @@ namespace lab_7_3
             products[8] = new Article("Двенадцать стульев", "Yakaboo", 50);
             products[9] = new Article("Тени в раю", "Yakaboo", 50);
             products[10] = new Article("Жизнь взаймы", "Yakaboo", 150);
+            products[11] = new Article("Оно", "Буква", 350);
+            products[12] = new Article("Остров сокровищ", "Розетка", 100);
+            products[13] = new Article("Шантарам", "Yakaboo", 200);
+            products[14] = new Article("Золотой телёнок", "Буква", 50);
+            products[15] = new Article("На Западном фронте без перемен", "Yakaboo", 250);
         }
         public static Boolean IsNumeric(string index)
         {
@@ -108,7 +115,19 @@ namespace lab_7_3
                 }
                 else continue;
             }
+        }
+
+        public string newItemName;
+        public string newItemShop;
+        public double newItemPrice;
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            SecondWindow secondWindow = new SecondWindow();
+            secondWindow.Owner = this;
+            secondWindow.Show();
+            Article newProduct = new Article(newItemName, newItemShop, newItemPrice);
             
+            store.addProduct(newProduct);
         }
     }
 }

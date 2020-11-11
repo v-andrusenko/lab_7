@@ -20,3 +20,5 @@ C:\Users\Valerii\Desktop\lab_7\lab_7_3\obj\Debug\lab_7_3.csproj.CoreCompileInput
 C:\Users\Valerii\Desktop\lab_7\lab_7_3\obj\Debug\lab_7_3.csproj.CopyComplete
 C:\Users\Valerii\Desktop\lab_7\lab_7_3\obj\Debug\lab_7_3.exe
 C:\Users\Valerii\Desktop\lab_7\lab_7_3\obj\Debug\lab_7_3.pdb
+C:\Users\Valerii\Desktop\lab_7\lab_7_3\obj\Debug\SecondWindow.g.cs
+C:\Users\Valerii\Desktop\lab_7\lab_7_3\obj\Debug\SecondWindow.baml
