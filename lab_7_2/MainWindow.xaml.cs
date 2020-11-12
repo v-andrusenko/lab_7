@@ -40,7 +40,7 @@ namespace lab_7_2
             }
             return result;
         }
-
+        MyMatrix newmatrix;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (IsNumeric(Convert.ToString(Columns.Text), Convert.ToString(Rows.Text)) == false)
@@ -63,7 +63,7 @@ namespace lab_7_2
                     }
                     else
                     {
-                        MyMatrix newmatrix = new MyMatrix(rows, columns);
+                        newmatrix = new MyMatrix(rows, columns);
                         if (newmatrix.rows==newmatrix.columns)
                         {
                             BaseMatrix.Text = "Порядок базовой матрицы: " + newmatrix.columns + "\n\n";
@@ -121,7 +121,7 @@ namespace lab_7_2
                         }
                         else
                         {
-                            MyMatrix newmatrix = new MyMatrix(rows, columns);
+                            newmatrix = new MyMatrix(rows, columns);
                             if (newmatrix.rows == newmatrix.columns)
                             {
                                 Matrix.Text = "Порядок производной матрицы: " + newmatrix.columns + "\n\n";

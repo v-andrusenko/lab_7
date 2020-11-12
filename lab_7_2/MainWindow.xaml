@@ -13,6 +13,7 @@
                 <DropShadowEffect BlurRadius="30" Color="LightGray" ShadowDepth="0"/>
             </Border.Effect>
             <StackPanel>
+                <TextBlock HorizontalAlignment="Center" Text="Матрицы" FontSize="30" FontWeight="Bold" Margin="0 0 0 10"/>
                 <WrapPanel HorizontalAlignment="Center">
                     <TextBox x:Name="Columns" Margin="0 0 20 20" MinWidth="200" materialDesign:HintAssist.Hint="Количество столбцов" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <TextBox x:Name="Rows" Margin="0 0 20 20" MinWidth="200" materialDesign:HintAssist.Hint="Количество строк" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
