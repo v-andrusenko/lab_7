@@ -120,26 +120,32 @@ namespace lab_7_3
 
         string newItemName;
         string newItemShop;
-        double newItemPrice;
+        double newItemPrice=0;
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            newItemName = Convert.ToString(newItemNameBox.Text);
-            newItemShop = Convert.ToString(newItemShopBox.Text);
-            newItemPrice = Convert.ToDouble(newItemPriceBox.Text);
-
-            Article newProduct = new Article(newItemName, newItemShop, newItemPrice);
-
-            store.addProduct(newProduct);
-            /*if (Convert.ToString(newItemNameBox.Text) == "" || Convert.ToString(newItemShopBox.Text) == "")
+            
+            if (newItemNameBox.Text != "" && newItemShopBox.Text != "" && newItemPriceBox.Text != "")
             {
-                MessageBox.Show("Не удалось добавить товар");
-                
+                newItemName = Convert.ToString(newItemNameBox.Text);
+                newItemShop = Convert.ToString(newItemShopBox.Text);
+                newItemPrice = Convert.ToDouble(newItemPriceBox.Text);
+
+                Article newProduct = new Article(newItemName, newItemShop, newItemPrice);
+
+                store.addProduct(newProduct);
+
+                MessageBox.Show("Товар успешно добавлен");
+                newItemNameBox.Text = "";
+                newItemShopBox.Text = "";
+                newItemPriceBox.Text = "";
             }
             else
             {
-                MessageBox.Show("Товар успешно добавлен!");
-            } */
+                MessageBox.Show("Товар не добавлен. Проверьте введенные данные");
+            }
+            
+            
         }
         
     }
