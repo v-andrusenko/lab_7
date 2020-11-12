@@ -49,37 +49,44 @@ namespace lab_7_2
             }
             else
             {
-                int columns = Convert.ToInt32(Columns.Text);
-                int rows = Convert.ToInt32(Rows.Text);
-                if (columns <= 0 || rows <= 0)
+                if (Convert.ToString(Columns.Text) == "" || Convert.ToString(Rows.Text) == "")
                 {
-                    MessageBox.Show("Количество столбцов и строк должно быть больше нуля.");
+                    MessageBox.Show("Проверьте введенные данные");
                 }
                 else
                 {
-                    MyMatrix newmatrix = new MyMatrix(rows, columns);
-                    if (newmatrix.rows==newmatrix.columns)
+                    int columns = Convert.ToInt32(Columns.Text);
+                    int rows = Convert.ToInt32(Rows.Text);
+                    if (columns <= 0 || rows <= 0)
                     {
-                        BaseMatrix.Text = "Порядок базовой матрицы: " + newmatrix.columns + "\n\n";
+                        MessageBox.Show("Количество столбцов и строк должно быть больше нуля.");
                     }
                     else
                     {
-                        BaseMatrix.Text = "Порядок базовой матрицы: " + newmatrix.rows + " x " + newmatrix.columns + "\n\n";
-                    }
-                    
-                    for (int i = 0; i < newmatrix.rows; i++)
-                    {
-                        for (int k=0; k < newmatrix.columns;k++)
+                        MyMatrix newmatrix = new MyMatrix(rows, columns);
+                        if (newmatrix.rows==newmatrix.columns)
                         {
-                            if (k==(newmatrix.columns-1))
+                            BaseMatrix.Text = "Порядок базовой матрицы: " + newmatrix.columns + "\n\n";
+                        }
+                        else
+                        {
+                            BaseMatrix.Text = "Порядок базовой матрицы: " + newmatrix.rows + " x " + newmatrix.columns + "\n\n";
+                        }
+                    
+                        for (int i = 0; i < newmatrix.rows; i++)
+                        {
+                            for (int k=0; k < newmatrix.columns;k++)
                             {
-                                BaseMatrix.Text += newmatrix.array[i, k].ToString() + "\n";
-                            }
-                            else
-                            {
-                                BaseMatrix.Text += newmatrix.array[i, k].ToString() + "  ";
-                            }
+                                if (k==(newmatrix.columns-1))
+                                {
+                                    BaseMatrix.Text += newmatrix.array[i, k].ToString() + "\n";
+                                }
+                                else
+                                {
+                                    BaseMatrix.Text += newmatrix.array[i, k].ToString() + "  ";
+                                }
 
+                            }
                         }
                     }
                 }
@@ -94,43 +101,50 @@ namespace lab_7_2
             }
             else
             {
-                if (IsNumeric(Convert.ToString(Columns.Text), Convert.ToString(Rows.Text)) == false)
+                if (Convert.ToString(Columns.Text) == "" || Convert.ToString(Rows.Text) == "")
                 {
-                    MessageBox.Show("Некорректный тип данных. Вводите только числовые значения");
+                    MessageBox.Show("Проверьте введенные данные");
                 }
                 else
                 {
-                    int columns = Convert.ToInt32(Columns.Text);
-                    int rows = Convert.ToInt32(Rows.Text);
-                    if (columns <= 0 || rows <= 0)
+                    if (IsNumeric(Convert.ToString(Columns.Text), Convert.ToString(Rows.Text)) == false)
                     {
-                        MessageBox.Show("Количество столбцов и строк должно быть больше нуля.");
+                        MessageBox.Show("Некорректный тип данных. Вводите только числовые значения");
                     }
                     else
                     {
-                        MyMatrix newmatrix = new MyMatrix(rows, columns);
-                        if (newmatrix.rows == newmatrix.columns)
+                        int columns = Convert.ToInt32(Columns.Text);
+                        int rows = Convert.ToInt32(Rows.Text);
+                        if (columns <= 0 || rows <= 0)
                         {
-                            Matrix.Text = "Порядок производной матрицы: " + newmatrix.columns + "\n\n";
+                            MessageBox.Show("Количество столбцов и строк должно быть больше нуля.");
                         }
                         else
                         {
-                            Matrix.Text = "Порядок производной матрицы: " + newmatrix.rows + " x " + newmatrix.columns + "\n\n";
-                        }
-
-                        for (int i = 0; i < newmatrix.rows; i++)
-                        {
-                            for (int k = 0; k < newmatrix.columns; k++)
+                            MyMatrix newmatrix = new MyMatrix(rows, columns);
+                            if (newmatrix.rows == newmatrix.columns)
                             {
-                                if (k == (newmatrix.columns - 1))
-                                {
-                                    Matrix.Text += newmatrix.array[i, k].ToString() + "\n";
-                                }
-                                else
-                                {
-                                    Matrix.Text += newmatrix.array[i, k].ToString() + "  ";
-                                }
+                                Matrix.Text = "Порядок производной матрицы: " + newmatrix.columns + "\n\n";
+                            }
+                            else
+                            {
+                                Matrix.Text = "Порядок производной матрицы: " + newmatrix.rows + " x " + newmatrix.columns + "\n\n";
+                            }
 
+                            for (int i = 0; i < newmatrix.rows; i++)
+                            {
+                                for (int k = 0; k < newmatrix.columns; k++)
+                                {
+                                    if (k == (newmatrix.columns - 1))
+                                    {
+                                        Matrix.Text += newmatrix.array[i, k].ToString() + "\n";
+                                    }
+                                    else
+                                    {
+                                        Matrix.Text += newmatrix.array[i, k].ToString() + "  ";
+                                    }
+
+                                }
                             }
                         }
                     }
