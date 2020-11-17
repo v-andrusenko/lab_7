@@ -41,6 +41,50 @@ namespace lab_7_2
             return result;
         }
         MyMatrix newmatrix;
+        MyMatrix deritativematrix;
+
+        private void PrintBaseMatrix()
+        {
+            if (newmatrix.rows == newmatrix.columns)
+            {
+                BaseMatrix.Text = "Порядок базовой матрицы: " + newmatrix.columns;
+            }
+            else
+            {
+                BaseMatrix.Text = "Порядок базовой матрицы: " + newmatrix.rows + " x " + newmatrix.columns;
+            }
+            BaseMatrix.Text += "\n\n";
+
+            for (int i = 0; i < newmatrix.rows; i++)
+            {
+                for (int k = 0; k < newmatrix.columns; k++)
+                {
+                     BaseMatrix.Text += String.Format("{0,5}", newmatrix.array[i, k]);
+                }
+                BaseMatrix.Text += "\n";
+            }
+        }
+        private void DerivativeMatrix()
+        {
+            if (deritativematrix.rows == deritativematrix.columns)
+            {
+                Matrix.Text = "Порядок производной матрицы: " + deritativematrix.columns;
+            }
+            else
+            {
+                Matrix.Text = "Порядок производной матрицы: " + deritativematrix.rows + " x " + deritativematrix.columns;
+            }
+            Matrix.Text += "\n\n";
+            for (int i = 0; i < deritativematrix.rows; i++)
+            {
+                for (int k = 0; k < deritativematrix.columns; k++)
+                {
+                    Matrix.Text += String.Format("{0,5}", deritativematrix.array[i, k]);
+                }
+                Matrix.Text += "\n";
+            }
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (IsNumeric(Convert.ToString(Columns.Text), Convert.ToString(Rows.Text)) == false)
@@ -55,39 +99,15 @@ namespace lab_7_2
                 }
                 else
                 {
-                    int columns = Convert.ToInt32(Columns.Text);
-                    int rows = Convert.ToInt32(Rows.Text);
-                    if (columns <= 0 || rows <= 0)
+                    if (Convert.ToInt32(Columns.Text) <= 0 || Convert.ToInt32(Rows.Text) <= 0)
                     {
                         MessageBox.Show("Количество столбцов и строк должно быть больше нуля.");
                     }
                     else
                     {
-                        newmatrix = new MyMatrix(rows, columns);
-                        if (newmatrix.rows==newmatrix.columns)
-                        {
-                            BaseMatrix.Text = "Порядок базовой матрицы: " + newmatrix.columns + "\n\n";
-                        }
-                        else
-                        {
-                            BaseMatrix.Text = "Порядок базовой матрицы: " + newmatrix.rows + " x " + newmatrix.columns + "\n\n";
-                        }
-                    
-                        for (int i = 0; i < newmatrix.rows; i++)
-                        {
-                            for (int k=0; k < newmatrix.columns;k++)
-                            {
-                                if (k==(newmatrix.columns-1))
-                                {
-                                    BaseMatrix.Text += newmatrix.array[i, k].ToString() + "\n";
-                                }
-                                else
-                                {
-                                    BaseMatrix.Text += newmatrix.array[i, k].ToString() + "  ";
-                                }
-
-                            }
-                        }
+                        newmatrix = new MyMatrix(Convert.ToInt32(Rows.Text), Convert.ToInt32(Columns.Text));
+                        PrintBaseMatrix();
+                        Matrix.Text = "";
                     }
                 }
             }
@@ -113,42 +133,40 @@ namespace lab_7_2
                     }
                     else
                     {
-                        int columns = Convert.ToInt32(Columns.Text);
-                        int rows = Convert.ToInt32(Rows.Text);
-                        if (columns <= 0 || rows <= 0)
+                        if (Convert.ToInt32(Columns.Text) <= 0 || Convert.ToInt32(Rows.Text) <= 0)
                         {
                             MessageBox.Show("Количество столбцов и строк должно быть больше нуля.");
                         }
                         else
                         {
-                            newmatrix = new MyMatrix(rows, columns);
-                            if (newmatrix.rows == newmatrix.columns)
-                            {
-                                Matrix.Text = "Порядок производной матрицы: " + newmatrix.columns + "\n\n";
-                            }
-                            else
-                            {
-                                Matrix.Text = "Порядок производной матрицы: " + newmatrix.rows + " x " + newmatrix.columns + "\n\n";
-                            }
+                            deritativematrix = new MyMatrix(Convert.ToInt32(Rows.Text), Convert.ToInt32(Columns.Text));
+                            deritativematrix.ResizeArray(newmatrix, Convert.ToInt32(Rows.Text), Convert.ToInt32(Columns.Text));
 
-                            for (int i = 0; i < newmatrix.rows; i++)
-                            {
-                                for (int k = 0; k < newmatrix.columns; k++)
-                                {
-                                    if (k == (newmatrix.columns - 1))
-                                    {
-                                        Matrix.Text += newmatrix.array[i, k].ToString() + "\n";
-                                    }
-                                    else
-                                    {
-                                        Matrix.Text += newmatrix.array[i, k].ToString() + "  ";
-                                    }
-
-                                }
-                            }
+                            DerivativeMatrix();
                         }
                     }
                 }
+            }
+        }
+
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            if (Convert.ToString(BaseMatrix.Text) == "")
+            {
+                MessageBox.Show("Невозможно заполнить несуществующую матрицу. Сперва создайте базовую");
+            }
+            else
+            {
+                Random rand = new Random();
+                for (int i=0; i<newmatrix.rows; i++)
+                {
+                    for (int k=0; k<newmatrix.columns;k++)
+                    {
+                        newmatrix.array[i,k] = rand.Next(0, 10);
+                    }
+                }
+                PrintBaseMatrix();
             }
         }
     }

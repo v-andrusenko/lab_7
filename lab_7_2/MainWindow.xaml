@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:lab_7_2"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Матрицы" Height="900" Width="1400" ResizeMode="NoResize">
+        Title="Матрицы" Height="900" Width="1400" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Grid Background="#ffdadada" >
         <Border Background="#fff" Margin="50" Padding="30" CornerRadius="20">
             <Border.Effect>
@@ -20,6 +20,7 @@
                 </WrapPanel>
                 <WrapPanel HorizontalAlignment="Center">
                     <Button Content="Создать матрицу" Margin ="0 0 20 20" MinWidth="200" Click="Button_Click"/>
+                    <Button Content="Заполнить матрицу" Margin ="0 0 20 20" MinWidth="200" Click="Button_Click_2"/>
                     <Button Content="Создать производную матрицу" Margin ="0 0 0 20" MinWidth="200" Click="Button_Click_1"/>
                 </WrapPanel>
                 <WrapPanel HorizontalAlignment="Center">

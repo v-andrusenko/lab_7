@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:lab_7_1"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Детали массива" Height="600" Width="1000">
+        Title="Детали массива" Height="600" Width="1000" WindowStartupLocation="CenterScreen">
     <Grid Background="#ffdadada">
         <Border MinWidth="500" Margin="15" Background="#fff" VerticalAlignment="Center" Padding="30" MaxWidth="800" CornerRadius="20">
             <Border.Effect>
